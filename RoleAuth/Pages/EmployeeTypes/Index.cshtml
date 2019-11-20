@@ -1,0 +1,68 @@
+﻿@page
+@model RoleAuth.Pages.EmployeeTypes.IndexModel
+@{
+	ViewData["Title"] = "Index";
+	Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Employee Types</h1>
+
+<br />
+<br />
+<div>
+	<div class="container">
+		<div class="row">
+			<a asp-page="Create" class="btn btn-danger">
+				<i class="fas fa-plus"></i>&nbsp; Create New
+			</a>
+		</div>		
+	</div>
+</div>
+<br />
+<br />
+<div>
+	@if (Model.EmployeeType.Count == 0)
+	{
+		<p>No Employee types exist! Please add a new one.</p>
+	}
+	else
+	{
+		<table class="table table-striped border">
+			<tr class="table-secondary">
+				<th>
+					@Html.DisplayNameFor(m => m.EmployeeType[0].Name)
+				</th>
+				<th>
+					@Html.DisplayNameFor(m => m.EmployeeType[0].PayType)
+				</th>
+				<th></th>
+			</tr>
+			@foreach (var item in Model.EmployeeType)
+			{
+				<tr>
+					<td>
+						@Html.DisplayFor(m => item.Name)
+					</td>
+					<td>
+						@Html.DisplayFor(m => item.PayType)
+					</td>
+					<td style="width:150px;">
+						<div class="btn-group" role="group">
+							<a class="btn btn-primary text-white" asp-page="Edit" asp-route-Id="@item.Id">
+								<i class="fas fa-edit"></i>
+							</a>
+							<a class="btn btn-success text-white" asp-page="Details" asp-route-Id="@item.Id">
+								<i class="far fa-list-alt"></i>
+							</a>
+							<a class="btn btn-danger text-white" asp-page="Delete" asp-route-Id="@item.Id">
+								<i class="fas fa-trash-alt"></i>
+							</a>
+						</div>
+
+					</td>
+				</tr>
+			}
+		</table>
+	}
+
+</div>

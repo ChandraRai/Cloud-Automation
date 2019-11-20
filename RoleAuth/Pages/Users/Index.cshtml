@@ -1,0 +1,77 @@
+﻿@page
+@model RoleAuth.Pages.Users.IndexModel
+@{
+	ViewData["Title"] = "Index";
+	Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+
+<form>
+
+	<h1>Users</h1>
+
+	<br />
+	<br />
+	<div>
+		<div class="container">
+			<div class="row">
+				<a asp-page="/Account/Register" asp-area="Identity" class="btn btn-danger">
+					<i class="fas fa-plus"></i>&nbsp; Create New
+				</a>
+			</div>
+		</div>
+	</div>
+	<br />
+	<br />
+</form>
+<div>
+	@if (Model.IdentityUserList.Count == 0)
+	{
+		<p>No Employee types exist! Please add a new one.</p>
+	}
+	else
+	{
+		<table class="table table-striped border">
+			<tr class="table-secondary">
+				<th>
+					@Html.DisplayNameFor(m => m.IdentityUserList[0].Id)
+				</th>
+				<th>
+					@Html.DisplayNameFor(m => m.IdentityUserList[0].Email)
+				</th>
+				@*<th>
+					@Html.DisplayNameFor(m => m.IdentityRoleList[0].Name)
+				</th>*@
+				<th></th>
+			</tr>
+			@foreach (var item in Model.IdentityUserList)
+			{
+				<tr>
+					<td>
+						@Html.DisplayFor(m => item.Id)
+					</td>
+					<td>
+						@Html.DisplayFor(m => item.Email)
+					</td>
+					@*<td>
+						@Html.DisplayFor(m => item.UserName)
+					</td>*@
+					<td style="width:150px;">
+						<div class="btn-group" role="group">
+							<a class="btn btn-primary text-white" asp-page="Edit" asp-route-Id="@item.Id">
+								<i class="fas fa-edit"></i>
+							</a>
+
+							<a class="btn btn-danger text-white" asp-page="Delete" asp-route-Id="@item.Id">
+								<i class="fas fa-trash-alt"></i>
+							</a>
+						</div>
+
+					</td>
+				</tr>
+			}
+		</table>
+	}
+
+</div>
+
