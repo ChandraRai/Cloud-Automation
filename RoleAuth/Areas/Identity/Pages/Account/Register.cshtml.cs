@@ -97,7 +97,7 @@ namespace RoleAuth.Areas.Identity.Pages.Account
                     
                     //here you assign role to user
                     //make admin for first user
-                    await _userManager.AddToRoleAsync(user, Who.User);
+                    await _userManager.AddToRoleAsync(user, Who.Admin);
 
                     _logger.LogInformation("User created a new account with password.");
 
