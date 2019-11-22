@@ -10,23 +10,25 @@
 <hr />
 <div class="row">
 	<div class="col-md-4">
-		<form method="post">
-			<div asp-validation-summary="ModelOnly" class="text-danger"></div>
-			<input type="hidden" asp-for="IdentityUser.Id" />
-			<div class="form-group">
-				<label asp-for="IdentityUser.Email" class="control-label"></label>
-				<input asp-for="IdentityUser.Email" class="form-control" />
-				<span asp-validation-for="IdentityUser.Email" class="text-danger"></span>
-			</div>
-			@*<div class="form-group">
-					<label asp-for="EmployeeType.PayType" class="control-label"></label>
-					<input asp-for="EmployeeType.PayType" class="form-control" />
-					<span asp-validation-for="EmployeeType.PayType" class="text-danger"></span>
-				</div>*@
-			<div class="form-group">
-				<input type="submit" value="Save" class="btn btn-primary" />
-			</div>
-		</form>
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="IdentityUser.Id" />
+            <div class="form-group">
+                <label asp-for="IdentityUser.Email" class="control-label"></label>
+                <input asp-for="IdentityUser.Email" class="form-control" />
+                <span asp-validation-for="IdentityUser.Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                @Html.DropDownListFor(
+                                x => x.IdentityUser.selectedRole,
+                                Model.IdentityUser.Roles,
+                                new {@class="form-control"}
+                            )
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Save" class="btn btn-primary" />
+                </div>
+</form>
 	</div>
 </div>
 <div>

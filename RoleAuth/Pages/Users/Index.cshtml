@@ -34,10 +34,10 @@
 		<table class="table table-striped border">
 			<tr class="table-secondary">
 				<th>
-					@Html.DisplayNameFor(m => m.IdentityUserList[0].Id)
+					@Html.DisplayNameFor(m => m.IdentityUserList[0].User)
 				</th>
 				<th>
-					@Html.DisplayNameFor(m => m.IdentityUserList[0].Email)
+					@Html.DisplayNameFor(m => m.IdentityUserList[0].Role)
 				</th>
 				@*<th>
 					@Html.DisplayNameFor(m => m.IdentityRoleList[0].Name)
@@ -48,10 +48,10 @@
 			{
 				<tr>
 					<td>
-						@Html.DisplayFor(m => item.Id)
+						@Html.DisplayFor(m => item.User)
 					</td>
 					<td>
-						@Html.DisplayFor(m => item.Email)
+						@Html.DisplayFor(m => item.Role)
 					</td>
 					@*<td>
 						@Html.DisplayFor(m => item.UserName)
