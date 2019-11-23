@@ -1,0 +1,55 @@
+﻿@model IEnumerable<Authentication_Project.Models.Book>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+    <h2>Index</h2>
+
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Items)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ISBN)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Vendor)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Received_Date)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Items)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ISBN)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Vendor)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Received_Date)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.BookId">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.BookId">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.BookId">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+

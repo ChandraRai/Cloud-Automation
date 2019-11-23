@@ -1,0 +1,14 @@
+
+sudo groupadd docker
+sudo usermod -aG docker $USER
+sudo chmod 666 /var/run/docker.sock
+docker run hello-world
+
+docker container run -it <image:tag> /bin/sh
+
+docker container ls -a
+
+docker container rm <container_id>
+docker image rm <image_Id>
+
+pip install --upgrade pip
